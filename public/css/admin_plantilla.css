@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: row;
+    color: #0064aa;
+    background: #e3e3e3;
+    height: 100%;
+    width: 4%;
+    position: fixed;
+    z-index: 10000000;
+
+
+}
+
+.sidebar > ul {
+    display: flex;
+    flex-direction: column;
+    background: #1f7680;
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar:hover {
+    width: 16%;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+.sidebar> ul>li>a> span {
+    color: white;
+    overflow: hidden;
+    display: none;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+
+
+}
+.sidebar:hover>ul>li>a> span {
+    display: block;
+    transition-delay: 3s;
+    font-size:90%;
+}
+
+.sidebar > ul > li {
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    height: 25%;
+    width: 100%;
+    color: #e3e3e3;
+}
+.sidebar > ul > li > a {
+    text-decoration: none;
+    color: #e3e3e3;
+    width: 100%;
+    display: flex;
+}
+.sidebar > ul > li > a > img {
+    width: 24px;
+    margin-right: 15px;
+}
+
+.tittle-side {
+    background: #0f3b40;
+}
+
+
+
+
+
+.content{
+    width: 96%;
+    margin-left: 4%;
+    overflow-x: hidden; 
+}
+
+.sidebar_sup {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: #0f3b40;
+    height: 12.5%;
+    margin-bottom: 10px;
+}
+.sidebar_sup > img {
+    height: 80%;
+    margin-left: 40px;
+}
+.sidebar_sup > form > button {
+    text-decoration: none;
+    font-size: 18px;
+    margin-right: 40px;
+    color: #e3e3e3;
+    border: none;
+    background: none;
+    position: relative;
+}
+
+.content-gen{
+    width: 85%;
+    height: 80%;
+    margin: auto;
+}
+
+
+
+
+.preferencias {
+    -webkit-align-self: flex-end;
+    align-self: flex-end;
+}
+.grupo-botones {
+    width: 80%;
+    display: flex;
+}
+
+.botones-prefer{
+    background-color: #1f7680 !important;
+    color: white !important;
+}
+.botones-prefer:hover{
+    background-color: #186068 !important;
+    color: white !important;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -ms-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
+.grupo-prefer{
+    position: absolute;
+    grid-template-columns: auto auto;
+    left: 75%;
+    margin-top: 1%;
+    display: grid;
+    grid-gap: 3px;
+}
+
+
+
+
+/* Aqui empieza la pagina mostrar-libro */
+.libro-content,.comments{
+    -webkit-box-shadow: 0px 0px 12px 1px rgba(166,146,166,0.81);
+    -moz-box-shadow: 0px 0px 12px 1px rgba(166,146,166,0.81);
+    box-shadow: 0px 0px 12px 1px rgba(166,146,166,0.81);
+    border-radius: 4px;
+
+}
+.libro-content {
+    width: 100%;
+    height: auto;
+    max-height: 90%;
+    margin: auto;
+    display: flex;
+}
+.libro-content>img{
+    width: 20%;
+    margin: auto;
+}
+
+.info-libro{
+    margin:auto;
+    width: 60%;
+    height: 80%;
+    
+}
+
+.info-libro p{
+    text-align: justify;
+    width: 90%;
+    height: 60%;
+    text-align: left;
+    overflow-y: auto;
+    scroll-margin: 50px 0 0 50px;
+}
+ /* Tamaño del scroll */
+ .info-libro p::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+   /* Estilos barra (thumb) de scroll */
+   .info-libro p::-webkit-scrollbar-thumb {
+    background: #0064aa;
+    border-radius: 4px;
+  }
+   
+  
+   /* Estilos track de scroll */
+   .info-libro p::-webkit-scrollbar-track {
+    background: #e3e3e3;
+    border-radius: 4px;
+    border: #0064aa;
+   }
+
+
+
+.info-libro>ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+}
+.info-libro>ul>li{
+    width: 50%;
+    height: 20%;
+    
+}
+
+.info-libro>ul>li>span{
+    font-weight: 600;
+    color:  #1f7680;
+    
+}
+
+
+.comments{
+    width: 100%;
+    height: 20%;
+    margin: auto;
+    margin-top: 30px;
+}
