@@ -2,7 +2,12 @@
 
 
 Desarrollado por :
-  Jose David Acevedo Camacho : jose.acevedo1@uac.edu.co
+  Jose David Acevedo Camacho : jose.acevedo1@uac.edu.co <br>
+  Ever Acosta <br>
+  Yasser Arrieta <br>
+  Daniel Orellano <br>
+  Kevin no se que vaina <br>
+  Carlo Ricaurte <br>
   
   
   
