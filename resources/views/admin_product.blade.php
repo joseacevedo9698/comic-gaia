@@ -1,39 +1,28 @@
-
 @extends('admin_plantilla')
 
 @section('content_control')
-    <table id="libros_table" class="table table-striped table-bordered" style="border: none; " >
+    <table id="product_table" class=" table table-striped table-bordered table-hover" style="border: none; " >
         <thead>
             <tr>
-                <th>Titulo</th>
-                <th>Volumen</th>
-                <th>Autor</th>
-                <th>Genero</th>
-                <th>Editorial</th>
-                <th><a class="btn btn-success" href="/registro/libro">Registrar</a></th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Tipo</th>
+                <th>Precio</th>
+                <th><a class="btn btn-success" href="/registro/producto">Registrar</a></th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($libros as $libro)
+            @foreach ($productos as $producto)
                 <tr>
-                    <td>{{$libro->titulo->Nombre}}</td>
-                    <td>{{$libro->volumen}}</td>
-                    <td>
-                        @foreach ($libro->autors as $item)
-                            {{$item->Nombre}}.
-                        @endforeach
-                    </td>
-                    <td>
-                        @foreach ($libro->generos as $item)
-                            {{$item->Nombre}}.
-                        @endforeach
-                    </td>
-                    <td>{{$libro->editorial->Nombre}}</td>
+                    <td>{{$producto->nombre}}</td>
+                    <td>{{$producto->descripcion}}</td>
+                    <td>{{$producto->tipo->nombre}}</td>
+                    <td>{{$producto->precio}}</td>
                     <td>
                         <div class="grupo-botones">
-                            <a href="/view_libro/{{$libro->id}}" class="btn btn-success">ver</a>
-                            <a href="/editar_libro/{{$libro->id}}" class="btn btn-primary">Editar</a>
-                            <a href="#"  onclick="alerta({{$libro->id}})" class=" btn btn-danger">Eliminar</a>
+                            <a href="/view_producto/{{$producto->id}}" class="btn btn-success">ver</a>
+                            <a href="/editar_producto/{{$producto->id}}" class="btn btn-primary">Editar</a>
+                            <a href="#"  onclick="alerta({{$producto->id}})" class=" btn btn-danger">Eliminar</a>
                         </div>
                     </td>
                 </tr>
@@ -46,17 +35,19 @@
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
 <script>
         $(document).ready( function () {
-            $('#libros_table').DataTable({
+            var table = $('#product_table').DataTable({
                 "pageLength": 5,
                 ordering:  true,
                 "lengthChange": true,
                 responsive: true,
                 "scrollX": false
             });
+
+            table.rows('.important').select();
         });
 
         function alerta(id){
-            var opcion = confirm("¿Desea eliminar este libro?");
+            var opcion = confirm("¿Desea eliminar este Producto?");
             if (opcion == true) {
                 window.location.href='/eliminar_producto/'+id;
 	        }

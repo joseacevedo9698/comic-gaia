@@ -13,27 +13,21 @@
       <div class="destacado">
         <h1>Destacado</h1>
         <div class="box-group">
-          <div class="box">
-            <img src="{{ asset('images/card1.jpg') }}" alt="" />
-            <div class="info-box">
-              <span>Charlas Domingueras</span>
-              <span>Leer Más</span>
-            </div>
-          </div>
-          <div class="box">
-            <img src="{{ asset('images/card2.jpg') }}" alt="" />
-            <div class="info-box">
-              <span>Charla sobre Creacion de mundos</span>
-              <span>Leer más</span>
-            </div>
-          </div>
-          <div class="box">
-            <img src="{{ asset('images/card3.jpg') }}" alt="" />
-            <div class="info-box">
-              <span>Taller de Estimulación Cognitiva</span>
-              <span>Leer Más</span>
-            </div>
-          </div>
+            @component('layouts.box')
+                @slot('path', 'images/card1.jpg')
+                @slot('title', 'Charlas Domingueras')
+                @slot('content', 'Leer mas')
+            @endcomponent
+            @component('layouts.box')
+                @slot('path', 'images/card2.jpg')
+                @slot('title', 'Charla sobre Creacion de mundos')
+                @slot('content', 'Leer mas')
+            @endcomponent
+            @component('layouts.box')
+                @slot('path', 'images/card3.jpg')
+                @slot('title', 'Taller de Estimulación Cognitiva')
+                @slot('content', 'Leer mas')
+            @endcomponent
         </div>
       </div>
       <div class="separador">
@@ -45,73 +39,55 @@
       <div class="fotos">
         <h1>Nuestras Fotos</h1>
         <div class="box-group">
-          <div class="box">
-            <img src="{{ asset('images/foto1.jpg') }}" alt="" />
-            <div class="info-box">
-              <span>Foto1</span>
-              <span>Ver</span>
-            </div>
-          </div>
-          <div class="box">
-            <img src="{{ asset('images/foto2.jpg') }}" alt="" />
-            <div class="info-box">
-              <span>Foto2</span>
-              <span>Ver</span>
-            </div>
-          </div>
-          <div class="box">
-            <img src="{{ asset('images/foto3.jpg') }}" alt="" />
-            <div class="info-box">
-              <span>Foto3</span>
-              <span>Ver</span>
-            </div>
-          </div> 
+            @component('layouts.box')
+                @slot('path', 'images/foto1.jpg')
+                @slot('title', 'Foto1')
+                @slot('content', 'Ver')
+            @endcomponent
+            @component('layouts.box')
+                @slot('path', 'images/foto2.jpg')
+                @slot('title', 'Foto2')
+                @slot('content', 'Ver')
+            @endcomponent
+            @component('layouts.box')
+                @slot('path', 'images/foto3.jpg')
+                @slot('title', 'Foto3')
+                @slot('content', 'Ver')
+            @endcomponent
         </div>
         <div class="box-group">
-          <div class="box">
-            <img src="{{ asset('images/foto4.jpg') }}" alt="" />
-            <div class="info-box">
-              <span>Foto4</span>
-              <span>Ver</span>
-            </div>
-          </div>
-          <div class="box">
-            <img src="{{ asset('images/foto5.jpg') }}" alt="" />
-            <div class="info-box">
-              <span>Foto5</span>
-              <span>Ver</span>
-            </div>
-          </div>
-          <div class="box">
-            <img src="{{ asset('images/foto6.jpg') }}" alt="" />
-            <div class="info-box">
-              <span>Foto6</span>
-              <span>Ver</span>
-            </div>
-          </div> 
+            @component('layouts.box')
+                @slot('path', 'images/foto4.jpg')
+                @slot('title', 'Foto4')
+                @slot('content', 'Ver')
+            @endcomponent
+            @component('layouts.box')
+                @slot('path', 'images/foto5.jpg')
+                @slot('title', 'Foto5')
+                @slot('content', 'Ver')
+            @endcomponent
+            @component('layouts.box')
+                @slot('path', 'images/foto6.jpg')
+                @slot('title', 'Foto6')
+                @slot('content', 'Ver')
+            @endcomponent
         </div>
         <div class="box-group">
-          <div class="box">
-            <img src="{{ asset('images/foto7.jpg') }}" alt="" />
-            <div class="info-box">
-              <span>Foto7</span>
-              <span>Ver</span>
-            </div>
-          </div>
-          <div class="box">
-            <img src="{{ asset('images/foto8.jpg') }}" alt="" />
-            <div class="info-box">
-              <span>Foto8</span>
-              <span>Ver</span>
-            </div>
-          </div>
-          <div class="box">
-            <img src="{{ asset('images/foto9.jpg') }}" alt="" />
-            <div class="info-box">
-              <span>Foto9</span>
-              <span>Ver</span>
-            </div>
-          </div> 
+            @component('layouts.box')
+                @slot('path', 'images/foto7.jpg')
+                @slot('title', 'Foto7')
+                @slot('content', 'Ver')
+            @endcomponent
+            @component('layouts.box')
+                @slot('path', 'images/foto8.jpg')
+                @slot('title', 'Foto8')
+                @slot('content', 'Ver')
+            @endcomponent
+            @component('layouts.box')
+                @slot('path', 'images/foto9.jpg')
+                @slot('title', 'Foto9')
+                @slot('content', 'Ver')
+            @endcomponent
         </div>
         <h5>Cargar más...</h1>
       </div>

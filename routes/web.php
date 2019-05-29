@@ -20,24 +20,27 @@ Route::get('admin/new_user', 'UsuarioController@register');
 Route::post('login', 'Auth\LoginController@login' )->name('login');
 Route::post('logout', 'Auth\LoginController@logout' )->name('logout');
 Route::post('/signup', 'UsuarioController@signup')->name('create_user');
-Route::get('/registro','LibroController@index');
+Route::get('/registro/libro','LibroController@index');
 Route::get('/registro/titulo', 'LibroController@titulofetch')->name('titulo.fetch');
 Route::get('/registro/autor', 'LibroController@autorfetch')->name('autor.fetch');
 Route::get('/registro/editorial', 'LibroController@editorialfetch')->name('editorial.fetch');
 Route::get('/registro/dibujante', 'LibroController@dibujantefetch')->name('dibujante.fetch');
-Route::post('/registro/insertion', 'LibroController@insertlibro');
+Route::post('/registro_libro', 'LibroController@insertlibro');
+Route::post('/registro_product', 'ProductController@insertproducto');
+Route::get('/registro/producto','ProductController@index');
+
 Route::get('admin/libros','AdminHomeController@index')->name('home');
+Route::get('admin/products','AdminHomeController@index_product')->name('product_index');
+
 Route::get('editar_libro/{id}','LibroController@showedit');
 Route::get('eliminar_libro/{id}','LibroController@destroy');
+Route::get('eliminar_producto/{id}','ProductController@destroy');
 Route::post('/actualizar/update', 'LibroController@update');
 
-Route::get('/view_libro', function() {
-    return view('libros_view');
-});
+Route::get('/view_libro/{id}','LibroController@showlibro');
 
-Route::get('/prueba', function() {
-    return view('prueba_nuevo');
-});
+
+
 
 
 

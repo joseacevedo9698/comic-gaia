@@ -1,27 +1,51 @@
 @extends('admin_plantilla')
     @section('content_control')
         <div class="libro-content">
-            <img src="{{ asset('images/prueba1.jpg') }}" alt="">
+                @if (!empty($libro->img_path))
+                    <img src="{{ $libro->img_path }}" alt="">
+                @else
+                    <img src="{{ asset('images/empty-img.png') }}" alt="">
+                @endif
             <div class="info-libro">
-                <h1>Civil War II</h2>
-                <h5>Ejemplares disponibles: 5</h4>
+                <h1>{{$libro->titulo->Nombre}}</h2>
+                <h5>Ejemplares disponibles: {{$libro->ejemplares}}</h4>
 
                 <ul>
-                    <li><span>Autores:</span> Brian Bendis </li>
+                    <li><span>Autores:</span>
+                        @foreach ($libro->autors as $item)
+                            {{$item->Nombre}}.
+                        @endforeach
+                    </li>
                     <li><span>Dibujante:</span> Justin Ponsor</li>
                     <li><span>Editorial:</span> Marvel</li>
-                    <li><span>publicación:</span> Junio 2016 </li>
-                    <li><span>Volumen:</span> 1 </li>
-                    <li><span>Genero:</span> Superheroes</li>
+                <li><span>publicación0: {{$libro->ano_public}}</span>
+
+                    </li>
+                <li><span>Volumen:</span> {{$libro->volumen}}</li>
+                    <li><span>Genero:</span>
+                        @foreach ($libro->generos as $item)
+                            {{$item->Nombre}}.
+                        @endforeach
+                    </li>
                 </ul>
 
-                <p>El arco argumental fue precedido por una serie conjunta de cómic titulada "Camino a Civil War II". Civil War II también está vinculada a varias series limitadas nuevas que incluye: Civil War II: The Amazing Spider-man, Civil War II: Choosing Sides, Civil War II: Gods of War, Civil War II: Kingpin, Civil War II: Ulysses, y Civil War II: X-Men, los One Shot: Civil War II: The Accused and Civil War II: The Fallen así como varias series en curso. La liberación de la serie estuvo planificada para ser comercializada junto al estreno de la película de Marvel Studios, Capitán América: Guerra Civil.</p>
+                <p>{{$libro->sinopsis}}</p>
             </div>
             <div class="grupo-prefer">
-                    <a href="#" class="btn botones-prefer">Editar</a><a href="#" class="btn btn-danger">eliminar</a>
+                    <a href="/editar_libro/{{$libro->id}}" class="btn botones-prefer">Editar</a><a href="#" class="btn btn-danger" onclick="alerta({{$libro->id}})">eliminar</a>
             </div>
         </div>
         <div class="comments">
-            
+
         </div>
+        <script>
+
+            function alerta(id){
+                var opcion = confirm("¿Desea eliminar este libro?");
+                if (opcion == true) {
+                    window.location.href='/eliminar_libro/'+id;
+                }
+
+            }
+        </script>
     @endsection

@@ -13,6 +13,7 @@ use App\dibujante;
 use App\autor;
 use App\editorial;
 use DB;
+use Carbon\Carbon;
 class LibroController extends Controller
 {
     /**
@@ -133,7 +134,7 @@ class LibroController extends Controller
             $dibujanteC->save();
             $dibujante_id = $dibujanteC->id;
         }
-        
+
         $autor_id;
         if(autor::where('Nombre', 'LIKE', '%'.$autor.'%')->count()>0){
             $autors = autor::where('Nombre', 'LIKE', '%'.$autor.'%')->get();
@@ -146,7 +147,7 @@ class LibroController extends Controller
             $autorC->save();
             $autor_id = $autorC->id;
         }
-        
+
 
         $libro = Libro::findOrfail($request->input('id'));
         $libro->titulo_id = $titulo_id;
@@ -278,7 +279,7 @@ class LibroController extends Controller
             $dibujanteC->save();
             $dibujante_id = $dibujanteC->id;
         }
-        
+
         $autor_id;
         if(autor::where('Nombre', 'LIKE', '%'.$autor.'%')->count()>0){
             $autors = autor::where('Nombre', 'LIKE', '%'.$autor.'%')->get();
@@ -291,7 +292,7 @@ class LibroController extends Controller
             $autorC->save();
             $autor_id = $autorC->id;
         }
-        
+
 
         $libro = new Libro();
         $libro->titulo_id = $titulo_id;
@@ -323,6 +324,19 @@ class LibroController extends Controller
         $tipo = tipo::all();
         $idioma = idioma::all();
         return view('edit_libros',compact('genero','tipo','idioma','datos'));
+    }
+
+
+
+
+    public function showLibro($id)
+    {
+        $libro = Libro::findOrFail($id);
+        if ($libro->count() > 0) {
+            // $fecha = \Carbon\Carbon::parse($libro->ano_public);
+            // $fecha_spanish = ucfirst($fecha->monthName).' De '.$fecha->year();
+            return view('libros_view',compact('libro'));
+        }
     }
 
 }

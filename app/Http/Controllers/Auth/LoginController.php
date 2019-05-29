@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
 
-    // public function __construct()
-    // {
-    //     $this->middleware('guest',['only' => 'showLoginForm']);
-    // }
-    
+     public function __construct()
+     {
+         $this->middleware('guest',['only' => 'showLoginForm']);
+     }
+
     public function login(Request $request)
     {
         $credentials = $this->validate(request(),[
@@ -23,6 +23,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->route('home');
         }
+        
         return back()
         ->withErrors(['email' => trans('auth.failed')])
         ->withInput(request(['email']));

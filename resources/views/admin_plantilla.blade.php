@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/admin_plantilla.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/easy-autocomplete.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/registro_style.css') }}">    
+    <link rel="stylesheet" href="{{ asset('css/registro_style.css') }}">
 
     {{-- <link rel="stylesheet" href="{{ asset('css/easy-autocomplete.themes.min.css') }}"> --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
@@ -26,7 +26,7 @@
         <div class="sidebar">
             <ul>
                 <li class="tittle-side"><a href="#"><img src="{{ asset('images/Icons/007-menu.png') }}" alt=""><span>Opciones</span></a></li>
-                <li><a href="/admin/libros"><img src="{{ asset('images/Icons/001-open-book.png') }}" alt=""><span>Libros</span></a></li>
+                <li class="side-option-selected"><a href="/admin/libros"><img src="{{ asset('images/Icons/001-open-book.png') }}" alt=""><span>Libros</span></a></li>
                 <li><a href="/admin/products"><img src="{{ asset('images/Icons/002-fast-food.png') }}" alt=""><span>Productos</span></a></li>
                 <li><a href="#"><img src="{{ asset('images/Icons/003-rating.png') }}" alt=""><span>Reseñas</span></a></li>
                 <li><a href="#"><img src="{{ asset('images/Icons/004-convention.png') }}" alt=""><span>Eventos</span></a></li>
@@ -35,7 +35,7 @@
                 <li class="tittle-side settings"><a href="#"><img src="{{ asset('images/Icons/008-settings.png') }}" alt=""><span>Preferencias</span></a></li>
             </ul>
         </div>
-        
+
         <div class="content">
             <div class="sidebar_sup">
                     <form action="{{route('logout')}}" method="POST">

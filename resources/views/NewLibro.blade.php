@@ -1,7 +1,7 @@
 @extends('admin_plantilla')
     @section('content_control')
                 <div class="contenedor-form">
-                    <form  action="/registro/insertion"  method="post" enctype="multipart/form-data">
+                    <form  action="/registro_libro"  method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input  name="titulo_id"  class="inputs form-control" id="titulo_id"  type="text" placeholder="Titulo">
                         <input class="inputs form-control" name="autor_id"  id="autor_id" type="text" placeholder="Autor">
@@ -47,7 +47,7 @@
             </div>
             <script type="text/javascript">
                 $("#titulo_id").easyAutocomplete({
-                adjustWidth:false,  
+                adjustWidth:false,
                 url: function(search) {
                     return "{{route('titulo.fetch')}}?search=" + search;
                 },
@@ -59,7 +59,7 @@
                     }
                 }
                 });
-    
+
                 $("#autor_id").easyAutocomplete({
                 url: function(search) {
                     return "{{route('autor.fetch')}}?search=" + search;
@@ -72,7 +72,7 @@
                     }
                 }
                 });
-    
+
                 $("#dibujante_id").easyAutocomplete({
                 adjustWidth: false,
                 url: function(search) {
@@ -86,7 +86,7 @@
                     }
                 }
                 });
-    
+
                 $("#editorial_id").easyAutocomplete({
                 url: function(search) {
                     return "{{route('editorial.fetch')}}?search=" + search;
@@ -100,26 +100,26 @@
                 }
 
                 });
-    
-    
-    
+
+
+
                 document.getElementById("myFile").onchange = function(e) {
-                    let reader = new FileReader();
-                  
+
+                let reader = new FileReader();
+
                   reader.onload = function(){
                     let preview = document.getElementById('preview'),
                             image = document.createElement('img');
-                
+
                     image.src = reader.result;
-                    
+
                     preview.innerHTML = '';
                     preview.append(image);
                   };
-                 
+
                   reader.readAsDataURL(e.target.files[0]);
                 }
                 </script>
-    
+
     @endsection
 
-            
