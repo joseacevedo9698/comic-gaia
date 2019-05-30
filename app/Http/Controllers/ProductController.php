@@ -57,4 +57,43 @@ class ProductController extends Controller
         $productos= Producto::all();
         return view('admin_product',compact('productos','respuesta_eliminacion'));
     }
+
+
+    public function showedit($id)
+    {
+        $producto = Producto::findOrFail($id);
+        $tipo = Producto_tipo::all();
+        return view('edit_producto',compact('producto','tipo'));
+    }
+
+
+    public function updateproducto(Request $request)
+    {
+        $producto = Producto::findOrFail($request->input('id'));
+        $producto->producto_imagenes()->delete();
+        $nombre = $request->input('nombre');
+        $file = $request->file('myFile');
+        $tipo = $request->input('tipo');
+        $descripcion = $request->input('desc');
+        $precio = $request->input('precio');
+        $producto->nombre = $nombre;
+        $producto->descripcion = $descripcion;
+        $tipo_count  = Producto_tipo::findOrFail($tipo);
+        $producto->tipo_id = $tipo_count->id;
+        $producto->precio = $precio;
+
+        foreach ($file as $f ) {
+            $path = Storage::disk('public')->put('image',$f);
+            $imagen = asset($path);
+            $imagen_producto = new Producto_imagen();
+            $imagen_producto->path_img = $imagen;
+            $imagen_producto->producto_id = $request->input('id');
+            $imagen_producto->save();
+        }
+        $producto->save();
+        $productos = Producto::all();
+            $respuesta_actualizacion = true;
+            return view('admin_product',compact('productos','respuesta_actualizacion'));
+
+    }
 }

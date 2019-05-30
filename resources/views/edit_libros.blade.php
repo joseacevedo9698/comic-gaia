@@ -1,17 +1,18 @@
 @extends('admin_plantilla')
     @section('content_control')
+                <h1 class="display-3 text-center">Editar Libro</h1>
                 @isset($datos)
                 <div class="contenedor-form">
                         <form  action="/actualizar/update"  method="post" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="id" value="{{ $datos->id }}" type="text">
                             <input  name="titulo_id"  value="{{$datos->titulo->Nombre}}" class="inputs form-control" id="titulo_id"  type="text" placeholder="Titulo">
-                            <input class="inputs form-control" 
+                            <input class="inputs form-control"
                             @foreach ($datos->autors as $item)
                                 value = "{{$item->Nombre}}"
                             @endforeach
                             name="autor_id"  id="autor_id" type="text" placeholder="Autor">
-                            <input class="inputs form-control" name="dibujante_id" 
+                            <input class="inputs form-control" name="dibujante_id"
                             @foreach ($datos->dibujantes as $item)
                                 value = "{{$item->Nombre}}"
                             @endforeach
@@ -21,7 +22,7 @@
                                 @foreach ($tipo as $g)
                                     @if ($g->id == $datos->tipo->id)
                                         <option value="{{$g->id}}" selected>{{$g->Nombre}}</option>
-                                    @else 
+                                    @else
                                     <option value="{{$g->id}}">{{$g->Nombre}}</option>
                                     @endif
                                 @endforeach
@@ -30,7 +31,7 @@
                                 {{$ident=-1}}
                                 <option value="" disabled selected>Seleccione el genero</option>
                                 @foreach ($genero as $g)
-                                    
+
                                     @foreach ($datos->generos as $item)
                                         @if ($g->id == $item->id)
                                             <option value="{{$g->id}}" selected>{{$g->Nombre}}</option>
@@ -49,7 +50,7 @@
                                 @foreach ($idioma as $g)
                                     @if ($g->id == $datos->idioma->id)
                                         <option value="{{$g->id}}" selected>{{$g->Nombre}}</option>
-                                    @else 
+                                    @else
                                     <option value="{{$g->id}}">{{$g->Nombre}}</option>
                                     @endif
                                 @endforeach
@@ -72,7 +73,7 @@
                         <div id="preview">
                             @if (!empty($datos->img_path))
                                 <img src="{{ $datos->img_path }}" alt="">
-                            @else 
+                            @else
                                 <img src="{{ asset('images/empty-img.png') }}" alt="">
                             @endif
                         </div>
@@ -80,7 +81,7 @@
                 </div>
                 <script type="text/javascript">
                     $("#titulo_id").easyAutocomplete({
-                    adjustWidth:false,  
+                    adjustWidth:false,
                     url: function(search) {
                         return "{{route('titulo.fetch')}}?search=" + search;
                     },
@@ -92,7 +93,7 @@
                         }
                     }
                     });
-        
+
                     $("#autor_id").easyAutocomplete({
                     url: function(search) {
                         return "{{route('autor.fetch')}}?search=" + search;
@@ -105,7 +106,7 @@
                         }
                     }
                     });
-        
+
                     $("#dibujante_id").easyAutocomplete({
                     adjustWidth: false,
                     url: function(search) {
@@ -119,7 +120,7 @@
                         }
                     }
                     });
-        
+
                     $("#editorial_id").easyAutocomplete({
                     url: function(search) {
                         return "{{route('editorial.fetch')}}?search=" + search;
@@ -131,24 +132,24 @@
                             enabled: true
                         }
                     }
-    
+
                     });
-        
-        
-        
+
+
+
                     document.getElementById("myFile").onchange = function(e) {
                         let reader = new FileReader();
-                      
+
                       reader.onload = function(){
                         let preview = document.getElementById('preview'),
                                 image = document.createElement('img');
-                    
+
                         image.src = reader.result;
-                        
+
                         preview.innerHTML = '';
                         preview.append(image);
                       };
-                     
+
                       reader.readAsDataURL(e.target.files[0]);
                     }
                     </script>

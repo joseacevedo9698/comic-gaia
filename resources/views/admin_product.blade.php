@@ -1,6 +1,7 @@
 @extends('admin_plantilla')
 
 @section('content_control')
+    <h1 class="display-3 text-center">Productos</h1>
     <table id="product_table" class=" table table-striped table-bordered table-hover" style="border: none; " >
         <thead>
             <tr>

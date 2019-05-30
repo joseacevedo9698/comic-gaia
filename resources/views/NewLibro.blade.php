@@ -1,5 +1,7 @@
 @extends('admin_plantilla')
     @section('content_control')
+            <h1 class="display-3 text-center">Registar nuevo Libro</h1>
+
                 <div class="contenedor-form">
                     <form  action="/registro_libro"  method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

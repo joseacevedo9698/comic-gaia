@@ -4,32 +4,32 @@
                 @if (!empty($libro->img_path))
                     <img src="{{ $libro->img_path }}" alt="">
                 @else
-                    <img src="{{ asset('images/empty-img.png') }}" alt="">
+                <img src="{{ asset('images/empty-img.png') }}" alt="{{$libro->titulo->Nombre}}">
                 @endif
             <div class="info-libro">
-                <h1>{{$libro->titulo->Nombre}}</h2>
+                <h1 class="text-capitalize">{{$libro->titulo->Nombre}}</h2>
                 <h5>Ejemplares disponibles: {{$libro->ejemplares}}</h4>
 
                 <ul>
-                    <li><span>Autores:</span>
+                    <li class="text-capitalize"><span>Autores:</span>
                         @foreach ($libro->autors as $item)
                             {{$item->Nombre}}.
                         @endforeach
                     </li>
                     <li><span>Dibujante:</span> Justin Ponsor</li>
                     <li><span>Editorial:</span> Marvel</li>
-                <li><span>publicación0: {{$libro->ano_public}}</span>
+                <li class="text-capitalize"><span>publicación: {{$libro->ano_public}}</span>
 
                     </li>
-                <li><span>Volumen:</span> {{$libro->volumen}}</li>
-                    <li><span>Genero:</span>
+                <li class="text-capitalize"><span>Volumen:</span> {{$libro->volumen}}</li>
+                    <li class="text-capitalize"><span>Genero:</span>
                         @foreach ($libro->generos as $item)
                             {{$item->Nombre}}.
                         @endforeach
                     </li>
                 </ul>
 
-                <p>{{$libro->sinopsis}}</p>
+                <p >{{$libro->sinopsis}}</p>
             </div>
             <div class="grupo-prefer">
                     <a href="/editar_libro/{{$libro->id}}" class="btn botones-prefer">Editar</a><a href="#" class="btn btn-danger" onclick="alerta({{$libro->id}})">eliminar</a>

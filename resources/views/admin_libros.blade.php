@@ -2,6 +2,7 @@
 @extends('admin_plantilla')
 
 @section('content_control')
+    <h1 class="display-3 text-center">Libros</h1>
     <table id="libros_table" class="table table-striped table-bordered" style="border: none; " >
         <thead>
             <tr>

@@ -184,8 +184,10 @@
     display: flex;
 }
 .libro-content>img{
-    width: 20%;
-    margin: auto;
+    object-fit: fill;
+    margin: 10px auto;
+    width: 15em;
+    height: 20em;
 }
 
 .info-libro{

@@ -26,7 +26,7 @@
         <div class="sidebar">
             <ul>
                 <li class="tittle-side"><a href="#"><img src="{{ asset('images/Icons/007-menu.png') }}" alt=""><span>Opciones</span></a></li>
-                <li class="side-option-selected"><a href="/admin/libros"><img src="{{ asset('images/Icons/001-open-book.png') }}" alt=""><span>Libros</span></a></li>
+                <li><a href="/admin/libros"><img src="{{ asset('images/Icons/001-open-book.png') }}" alt=""><span>Libros</span></a></li>
                 <li><a href="/admin/products"><img src="{{ asset('images/Icons/002-fast-food.png') }}" alt=""><span>Productos</span></a></li>
                 <li><a href="#"><img src="{{ asset('images/Icons/003-rating.png') }}" alt=""><span>Reseñas</span></a></li>
                 <li><a href="#"><img src="{{ asset('images/Icons/004-convention.png') }}" alt=""><span>Eventos</span></a></li>

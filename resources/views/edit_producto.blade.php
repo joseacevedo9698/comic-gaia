@@ -1,19 +1,24 @@
 @extends('admin_plantilla')
     @section('content_control')
-                <h1 class="display-3 text-center">Registrar Nuevo Producto</h1><br>
+                <h1 class="display-3 text-center">Editar Producto</h1><br>
                 <div class="contenedor-form">
-                        <form  action="/registro_product"  method="post" enctype="multipart/form-data">
+                        <form  action="/actualizar_product"  method="post" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input  name="nombre"  class="inputs form-control" id="nombre_id"  type="text" placeholder="Nombre del Producto">
-                        <input  name="precio"  class="inputs form-control" id="precio"  type="number" placeholder="Precio">
+                            <input type="hidden" name="id" value="{{ $producto->id }}" type="text">
+                        <input value="{{$producto->nombre}}" name="nombre"  class="inputs form-control" id="nombre_id"  type="text" placeholder="Nombre del Producto">
+                        <input  name="precio"   value="{{$producto->precio}}" class="inputs form-control" id="precio"  type="number" placeholder="Precio">
                         <select class="inputs form-control "name="tipo" required>
                                 <option value="" disabled selected>Seleccione el tipo</option>
                                 @foreach ($tipo as $g)
-                                    <option value="{{$g->id}}">{{$g->nombre}}</option>
+                                    @if ($producto->tipo_id == $g->id)
+                                        <option value="{{$g->id}}" selected>{{$g->nombre}}</option>
+                                    @else
+                                        <option value="{{$g->id}}">{{$g->nombre}}</option>
+                                    @endif
                                 @endforeach
                         </select>
 
-                        <textarea name="desc" class="inputs form-control"placeholder="Digite la Descripcion"></textarea>
+                        <textarea name="desc"  class="inputs form-control"placeholder="Digite la Descripcion">{{$producto->descripcion}}</textarea>
                         <div class="inputs input-group mb-3 filec">
                                 <div class="custom-file">
                                   <input type="file" class="inputs custom-file-input" name="myFile[]"multiple id="myFile">
@@ -21,7 +26,7 @@
                                 </div>
                         </div>
                         <div class="grupo-botones">
-                            <button type="submit" class="inputs btn btn-primary">Registrar Producto</button>
+                            <button type="submit" class="inputs btn btn-primary">Actualizar Producto</button>
                             <a href="/admin/products" class="inputs btn btn-danger">Cancelar</a>
                         </div>
                     </form>
@@ -30,9 +35,11 @@
 
 
                                     <div id="carousel_id" class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                    <img class="d-block w-100" src="{{ asset('images/empty-img.png') }}">
+                                        @foreach ($producto->producto_imagenes as $item)
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src="{{$item->path_img}}">
                                             </div>
+                                        @endforeach
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -45,38 +52,14 @@
 
                     </div>
                 </div>
-                <script>
+<script>
 
-                //  document.getElementById("myFile").onchange = function(e) {
-
-                //      let reader = new FileReader();
-
-                //        reader.onload = function(){
-                //          var input = document.getElementById('myFile');
-                //          for (var x = 0; x < input.files.length; x++) {
-                //               var file = input.files[x];
-                //               let preview = document.getElementById('preview');
-
-                //               console.log(complemento);
-                //              console.log(file);
+            $(document).ready(function() {
+                    $('#carouselExampleControls').carousel();
+                    $('.carousel-item').first().addClass('active');
 
 
 
-                //          }
-
-                //          let preview = document.getElementById('preview'),
-                //                  image = document.createElement('img');
-
-                //          image.src = reader.result;
-
-                //          preview.innerHTML = '';
-                //          preview.append(image);
-                //        };
-                //     reader.readAsDataURL(e.target.files[0]);
-                //   }
-
-                  $(document).ready(function() {
-                    // Escuchamos el evento 'change' del input donde cargamos el archivo
                     $(document).on('change', 'input[type=file]', function(e) {
                     // Obtenemos la ruta temporal mediante el evento
 
@@ -91,8 +74,12 @@
                             $('.carousel-item').first().addClass('active');
                          }
 
-                         });
                     });
+            });
 
-                </script>
-    @endsection
+
+
+
+</script>
+
+@endsection
