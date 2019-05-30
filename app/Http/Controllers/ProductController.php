@@ -96,4 +96,12 @@ class ProductController extends Controller
             return view('admin_product',compact('productos','respuesta_actualizacion'));
 
     }
+
+
+
+    public function showproducto($id)
+    {
+        $producto = Producto::findOrFail($id);
+        return view('producto_view',compact('producto'));
+    }
 }

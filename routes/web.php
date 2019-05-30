@@ -42,6 +42,7 @@ Route::get('/view_libro/{id}','LibroController@showlibro');
 Route::get('editar_producto/{id}','ProductController@showedit');
 
 Route::post('/actualizar_product', 'ProductController@updateproducto');
+Route::get('/view_producto/{id}','ProductController@showproducto');
 
 
 
