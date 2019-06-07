@@ -1,18 +1,11 @@
 @extends('admin_plantilla')
     @section('content_control')
-                <h1 class="display-3 text-center">Registrar Nuevo Producto</h1><br>
+                <h1 class="display-3 text-center">Registrar Nueva Galeria</h1><br>
                 <div class="contenedor-form">
-                        <form  action="/registro_product"  method="post" enctype="multipart/form-data">
+                        <form  action="/registro_gallery"  method="post" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input  name="nombre"  class="inputs form-control" id="nombre_id"  type="text" placeholder="Nombre del Producto">
-                        <input  name="precio"  class="inputs form-control" id="precio"  type="number" placeholder="Precio">
-                        <select class="inputs form-control "name="tipo" required>
-                                <option value="" disabled selected>Seleccione el tipo</option>
-                                @foreach ($tipo as $g)
-                                    <option value="{{$g->id}}">{{$g->nombre}}</option>
-                                @endforeach
-                        </select>
-
+                        <input  name="nombre"  class="inputs form-control" id="nombre_id"  type="text" placeholder="Nombre de la publicación">
+                        {{-- <input  name="fecha"  class="inputs form-control" id="fecha"  type="date" placeholder="Fecha de publicación"> --}}
                         <textarea name="desc" class="inputs form-control"placeholder="Digite la Descripcion"></textarea>
                         <div class="inputs input-group mb-3 filec">
                                 <div class="custom-file">
@@ -22,7 +15,7 @@
                         </div>
                         <div class="grupo-botones">
                             <button type="submit" class="inputs btn btn-primary">Registrar Producto</button>
-                            <a href="/admin/products" class="inputs btn btn-danger">Cancelar</a>
+                            <a href="/admin/gallery" class="inputs btn btn-danger">Cancelar</a>
                         </div>
                     </form>
                     <div id="preview" class="preview">

@@ -44,6 +44,11 @@ Route::get('editar_producto/{id}','ProductController@showedit');
 Route::post('/actualizar_product', 'ProductController@updateproducto');
 Route::get('/view_producto/{id}','ProductController@showproducto');
 
+Route::get('/admin/gallery','AdminHomeController@index_gallery')->name('gallery_index');
+
+Route::get('/registro/gallery','GaleriaController@index');
+
+Route::post('/registro_gallery', 'GaleriaController@insertgaleria');
 
 
 

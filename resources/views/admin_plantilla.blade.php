@@ -30,7 +30,7 @@
                 <li><a href="/admin/products"><img src="{{ asset('images/Icons/002-fast-food.png') }}" alt=""><span>Productos</span></a></li>
                 <li><a href="#"><img src="{{ asset('images/Icons/003-rating.png') }}" alt=""><span>Reseñas</span></a></li>
                 <li><a href="#"><img src="{{ asset('images/Icons/004-convention.png') }}" alt=""><span>Eventos</span></a></li>
-                <li><a href="#"><img src="{{ asset('images/Icons/005-gallery.png') }}" alt=""><span>Galeria</span></a></li>
+                <li><a href="/admin/gallery"><img src="{{ asset('images/Icons/005-gallery.png') }}" alt=""><span>Galeria</span></a></li>
                 <li><a href="#"><img src="{{ asset('images/Icons/006-contact.png') }}" alt=""><span>Contacto</span></a></li>
                 <li class="tittle-side settings"><a href="#"><img src="{{ asset('images/Icons/008-settings.png') }}" alt=""><span>Preferencias</span></a></li>
             </ul>

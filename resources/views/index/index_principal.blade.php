@@ -17,16 +17,19 @@
                 @slot('path', 'images/card1.jpg')
                 @slot('title', 'Charlas Domingueras')
                 @slot('content', 'Leer mas')
+                @slot('link','#')
             @endcomponent
             @component('layouts.box')
                 @slot('path', 'images/card2.jpg')
                 @slot('title', 'Charla sobre Creacion de mundos')
                 @slot('content', 'Leer mas')
+                @slot('link','#')
             @endcomponent
             @component('layouts.box')
                 @slot('path', 'images/card3.jpg')
                 @slot('title', 'Taller de Estimulación Cognitiva')
                 @slot('content', 'Leer mas')
+                @slot('link','#')
             @endcomponent
         </div>
       </div>
@@ -43,16 +46,19 @@
                 @slot('path', 'images/foto1.jpg')
                 @slot('title', 'Foto1')
                 @slot('content', 'Ver')
+                @slot('link','#')
             @endcomponent
             @component('layouts.box')
                 @slot('path', 'images/foto2.jpg')
                 @slot('title', 'Foto2')
                 @slot('content', 'Ver')
+                @slot('link','#')
             @endcomponent
             @component('layouts.box')
                 @slot('path', 'images/foto3.jpg')
                 @slot('title', 'Foto3')
                 @slot('content', 'Ver')
+                @slot('link','#')
             @endcomponent
         </div>
         <div class="box-group">
@@ -60,16 +66,19 @@
                 @slot('path', 'images/foto4.jpg')
                 @slot('title', 'Foto4')
                 @slot('content', 'Ver')
+                @slot('link','#')
             @endcomponent
             @component('layouts.box')
                 @slot('path', 'images/foto5.jpg')
                 @slot('title', 'Foto5')
                 @slot('content', 'Ver')
+                @slot('link','#')
             @endcomponent
             @component('layouts.box')
                 @slot('path', 'images/foto6.jpg')
                 @slot('title', 'Foto6')
                 @slot('content', 'Ver')
+                @slot('link','#')
             @endcomponent
         </div>
         <div class="box-group">
@@ -77,16 +86,19 @@
                 @slot('path', 'images/foto7.jpg')
                 @slot('title', 'Foto7')
                 @slot('content', 'Ver')
+                @slot('link','#')
             @endcomponent
             @component('layouts.box')
                 @slot('path', 'images/foto8.jpg')
                 @slot('title', 'Foto8')
                 @slot('content', 'Ver')
+                @slot('link','#')
             @endcomponent
             @component('layouts.box')
                 @slot('path', 'images/foto9.jpg')
                 @slot('title', 'Foto9')
                 @slot('content', 'Ver')
+                @slot('link','#')
             @endcomponent
         </div>
         <h5>Cargar más...</h1>

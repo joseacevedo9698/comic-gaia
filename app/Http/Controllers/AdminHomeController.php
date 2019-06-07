@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Libro;
 use App\Producto;
+use App\Galeria;
+
 class AdminHomeController extends Controller
 {
     public function __construct()
@@ -22,5 +24,12 @@ class AdminHomeController extends Controller
     {
         $productos = Producto::all();
         return view('admin_product',compact('productos'));
+    }
+
+    public function index_gallery()
+    {
+        $galeria = Galeria::orderBy('id','desc')->get();
+        $galeria_count = Galeria::count();
+        return view('gallery_admin',compact('galeria','galeria_count'));
     }
 }

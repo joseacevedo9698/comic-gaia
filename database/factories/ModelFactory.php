@@ -88,4 +88,19 @@ $factory->define(App\Producto_tipo::class, function (Faker $faker) {
 });
 
 
+$factory->define(App\Galeria::class, function (Faker $faker) {
+    return [
+            'Nombre' => $faker->name,
+            'Description' => $faker->word(),
+            'Fecha_publicacion' => $faker->date()
+    ];
+});
 
+
+$factory->define(App\Galeria_img::class, function (Faker $faker) {
+    return [
+            'path_img' => $faker->name,
+            'galeria_id' => $faker->numberBetween($min = 1,$max = 50)
+
+    ];
+});
