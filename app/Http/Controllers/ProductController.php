@@ -21,7 +21,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'myFile' => 'required|file',
+            'myFile' => 'required',
             'tipo' => 'required|numeric',
             'desc' => 'required',
             'precio' => 'required|numeric'

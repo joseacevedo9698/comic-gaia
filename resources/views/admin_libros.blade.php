@@ -59,7 +59,7 @@
         function alerta(id){
             var opcion = confirm("¿Desea eliminar este libro?");
             if (opcion == true) {
-                window.location.href='/eliminar_producto/'+id;
+                window.location.href='/eliminar_libro/'+id;
 	        }
 
         }

@@ -25,7 +25,7 @@ class GaleriaController extends Controller
         $request->validate([
             'nombre' => 'required',
             'desc' => 'required',
-            'myFile' => 'required|file',
+            'myFile' => 'required',
         ]);
         $fecha = Carbon::now();
         $nombre = $request->input('nombre');
