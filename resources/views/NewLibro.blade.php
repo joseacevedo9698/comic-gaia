@@ -1,7 +1,14 @@
 @extends('admin_plantilla')
     @section('content_control')
             <h1 class="display-3 text-center">Registar nuevo Libro</h1>
-
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Ingrese Correctamente los Datos
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                @endif
                 <div class="contenedor-form">
                     <form  action="/registro_libro"  method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-            <h3 class="modal-title" id="exampleModalLongTitle">{{$title}}</h3>
+            <h1 class="modal-title" id="exampleModalLongTitle">{{$title}}</h3>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -19,9 +19,18 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-success">Editar</button>
-          <button type="button" class="btn btn-danger">Eliminar</button>
+            <a href="/gallery/edit/{{$id}}" class="btn btn-success">Editar</a>
+            <a href="#" onclick="alerta({{$id}})" class="btn btn-danger">Eliminar</a>
         </div>
       </div>
     </div>
   </div>
+<script>
+    function alerta(id){
+            var opcion = confirm("¿Desea eliminar este libro?");
+            if (opcion == true) {
+                window.location.href='/eliminar_gallery/'+id;
+	        }
+
+        }
+</script>

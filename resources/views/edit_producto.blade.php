@@ -2,6 +2,14 @@
     @section('content_control')
                 <h1 class="display-3 text-center">Editar Producto</h1><br>
                 <div class="contenedor-form">
+                        @if ($errors->any())
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Ingrese Correctamente los Datos
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    @endif
                         <form  action="/actualizar_product"  method="post" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="id" value="{{ $producto->id }}" type="text">

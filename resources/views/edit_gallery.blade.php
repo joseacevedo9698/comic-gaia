@@ -1,6 +1,7 @@
 @extends('admin_plantilla')
     @section('content_control')
-                <h1 class="display-3 text-center">Registrar Nueva Galeria</h1><br>
+            @isset($datos)
+                <h1 class="display-3 text-center">Editar  Galeria</h1><br>
                 @if ($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>Ingrese Correctamente los Datos
@@ -11,10 +12,11 @@
             @endif
                 <div class="contenedor-form">
 
-                        <form  action="/registro_gallery"  method="post" enctype="multipart/form-data">
+                        <form  action="/edit_gallery/{{$datos->id}}"  method="post" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input  name="nombre"  class="inputs form-control" id="nombre_id"  type="text" placeholder="Nombre de la publicación">
-                        <textarea name="desc" class="inputs form-control"placeholder="Digite la Descripcion"></textarea>
+                        <input  name="nombre" value="{{$datos->Nombre}}"  class="inputs form-control" id="nombre_id"  type="text" placeholder="Nombre de la publicación">
+                        <textarea name="desc" class="inputs form-control"placeholder="Digite la Descripcion">{{$datos->Description}}</textarea>
+                        <input type="hidden" name="id" value="{{ $datos->id }}" type="text">
                         <div class="inputs input-group mb-3 filec">
                                 <div class="custom-file">
                                   <input type="file" class="inputs custom-file-input" name="myFile[]"multiple id="myFile">
@@ -22,7 +24,7 @@
                                 </div>
                         </div>
                         <div class="grupo-botones">
-                            <button type="submit" class="inputs btn btn-primary">Registrar Producto</button>
+                            <button type="submit" class="inputs btn btn-primary">Editar Galeria</button>
                             <a href="/admin/gallery" class="inputs btn btn-danger">Cancelar</a>
                         </div>
                     </form>
@@ -31,9 +33,11 @@
 
 
                                     <div id="carousel_id" class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                    <img class="d-block w-100" src="{{ asset('images/empty-img.png') }}">
+                                        @foreach ($datos->galeria_imagenes as $item)
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src="{{$item->path_img}}">
                                             </div>
+                                        @endforeach
                                     </div>
                                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -48,6 +52,8 @@
                 </div>
                 <script>
                   $(document).ready(function() {
+                    $('#carouselExampleControls').carousel();
+                    $('.carousel-item').first().addClass('active');
                     // Escuchamos el evento 'change' del input donde cargamos el archivo
                     $(document).on('change', 'input[type=file]', function(e) {
                     // Obtenemos la ruta temporal mediante el evento
@@ -67,4 +73,9 @@
                     });
 
                 </script>
+                 @endisset
+                 @if (!isset($datos))
+                     <h1>Publicación no encontrada en la base de datos</h1>
+                 @endif
     @endsection
+

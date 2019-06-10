@@ -50,7 +50,9 @@ Route::get('/registro/gallery','GaleriaController@index');
 
 Route::post('/registro_gallery', 'GaleriaController@insertgaleria');
 
+Route::get('/gallery/edit/{id}', 'GaleriaController@showedit');
+Route::get('/eliminar_gallery/{id}', 'GaleriaController@eliminar');
 
-
+Route::post('edit_gallery/{id}','GaleriaController@editar_gallery');
 
 

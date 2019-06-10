@@ -19,6 +19,13 @@ class ProductController extends Controller
     }
     public function insertproducto(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required',
+            'myFile' => 'required|file',
+            'tipo' => 'required|numeric',
+            'desc' => 'required',
+            'precio' => 'required|numeric'
+        ]);
        $nombre = $request->input('nombre');
        $file = $request->file('myFile');
        $tipo = $request->input('tipo');
@@ -69,6 +76,14 @@ class ProductController extends Controller
 
     public function updateproducto(Request $request)
     {
+        $request->validate([
+            'id'=> 'required|numeric',
+            'nombre' => 'required',
+            'myFile' => 'required|file',
+            'tipo' => 'required|numeric',
+            'desc' => 'required',
+            'precio' => 'required|numeric'
+        ]);
         $producto = Producto::findOrFail($request->input('id'));
         $producto->producto_imagenes()->delete();
         $nombre = $request->input('nombre');
