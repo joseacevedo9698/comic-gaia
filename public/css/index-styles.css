@@ -17,14 +17,14 @@
     min-height: 95vh;
     height: 100vh;
     width: 100%;
-    background: 
+    background:
     /* top, transparent red */ radial-gradient(
         circle,
         rgba(110, 109, 109, 0.767) 0%,
         rgba(0, 0, 0, 0.7651260333234856) 50%,
         rgba(80, 80, 80, 0.767927153771665) 100%
       ),
-      /* bottom, image */ url(../images/wallpaper.jpg);
+      /* bottom, image */ url(../images/wallpaperdown2.jpg);
     -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 78%, 0 100%, 0 0);
     clip-path: polygon(50% 0%, 100% 0, 100% 78%, 0 100%, 0 0);
     background-repeat: no-repeat;
@@ -251,7 +251,7 @@
         rgba(65, 186, 180, 0.658),
         rgba(78, 194, 188, 0.664)
       ),
-      url("../images/wallpaper.jpg");
+      url("../images/wallpaperdown2.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
