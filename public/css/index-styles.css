@@ -57,7 +57,7 @@
     font-size: 0.8em;
     text-shadow: 1px 0px 10px rgba(0, 0, 0, 0.44);
   }
-  ul {
+  .content>ul {
     display: flex;
     flex-direction: row;
     z-index: 1;
@@ -75,6 +75,7 @@
     font-weight: 400;
     position: fixed;
     top: 0;
+    z-index: 9999999;
   }
 
   li {
@@ -92,7 +93,7 @@
     display: block;
   }
 
-  a {
+  li>a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -211,7 +212,6 @@
   .info-box > span:first-child {
     font-size: 1.3em;
     font-weight: 600;
-    color: #fff;
     text-shadow: 1px 0px 10px rgba(0, 0, 0, 0.44);
     width: 90%;
     text-align: center;
@@ -224,7 +224,7 @@
     width: 90%;
     text-align: center;
   }
-  .box:hover .info-box {
+  .box:hover >.info-box {
     -webkit-box-shadow: 0px -8px 13px -5px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px -8px 13px -5px rgba(0, 0, 0, 0.75);
     box-shadow: 0px -8px 13px -5px rgba(0, 0, 0, 0.75);
@@ -339,6 +339,39 @@
     height: 100%;
     width: 20%;
     text-align: right;
+  }
+
+  .contenido-libros{
+    min-height: 34vh;
+    margin: 18vh auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .list-libros{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+  }
+
+  .list-libros>.box-group{
+      width: 80% !important;
+  }
+
+  .list-libros>nav{
+     margin-top: 11vh;
+  }
+  nav{
+      width: 60%;
+  }
+
+  .contenido-libros>h2{
+    display: block;
+    height: 100%;
   }
 
 }

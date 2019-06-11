@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="info-producto">
-        <h1 class="text-capitalize">{{$producto->nombre}}</h2>
+            <h2 class="text-capitalize">{{$producto->nombre}}</h2>
             <h5><span>Precio:</span> {{$producto->precio}}</h4>
 
                 <ul>

@@ -86,16 +86,15 @@ class LibroController extends Controller
         $request->validate([
             'id' => 'required',
             'genero_id' => 'required|numeric',
-            'titulo_id' => 'required|numeric',
-            'autor_id' => 'required|numeric',
-            'dibujante_id' => 'required|numeric',
+            'titulo_id' => 'required',
+            'autor_id' => 'required',
+            'dibujante_id' => 'required',
             'tipo_id' => 'required|numeric',
-            'editorial_id' => 'required|numeric',
+            'editorial_id' => 'required',
             'idioma_id' => 'required|numeric',
             'ano_public' => 'required|date',
             'volumen' => 'required|numeric',
             'ejemplares' => 'required|numeric',
-            'myFile' => 'required|file'
         ]);
 
         DB::table('autor_libro')->where('libro_id', '=', $request->input('id'))->delete();
@@ -247,17 +246,17 @@ class LibroController extends Controller
     public function insertlibro(Request $request)
     {
         $request->validate([
-            'genero_id' => 'required|numeric',
-            'titulo_id' => 'required|numeric',
-            'autor_id' => 'required|numeric',
-            'dibujante_id' => 'required|numeric',
+            'genero_id' => 'required',
+            'titulo_id' => 'required',
+            'autor_id' => 'required',
+            'dibujante_id' => 'required',
             'tipo_id' => 'required|numeric',
-            'editorial_id' => 'required|numeric',
+            'editorial_id' => 'required',
             'idioma_id' => 'required|numeric',
             'ano_public' => 'required|date',
             'volumen' => 'required|numeric',
             'ejemplares' => 'required|numeric',
-            'myFile' => 'required|file'
+            'myFile' => 'required'
         ]);
         $titulo = $request->input('titulo_id');
         $autor= $request->input('autor_id');

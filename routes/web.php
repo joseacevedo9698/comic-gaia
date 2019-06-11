@@ -14,6 +14,7 @@
 Route::get('/admin','Auth\LoginController@showLoginForm')->middleware('guest');
 
 Route::get('/', 'IndexController@index')->name('Index');
+Route::get('/libros','IndexController@libros');
 
 Route::get('admin/new_user', 'UsuarioController@register');
 
@@ -56,3 +57,4 @@ Route::get('/eliminar_gallery/{id}', 'GaleriaController@eliminar');
 Route::post('edit_gallery/{id}','GaleriaController@editar_gallery');
 
 
+Route::post('/search/libro','IndexController@Search_libro');
