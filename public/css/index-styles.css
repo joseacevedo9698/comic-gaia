@@ -84,7 +84,7 @@
     list-style: none;
   }
 
-  li > img {
+  li >a> img {
     background: #00a19a;
     width: 80%;
     border-bottom-left-radius: 50%;
@@ -93,7 +93,7 @@
     display: block;
   }
 
-  li>a {
+  li>.nav {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,7 +110,7 @@
     text-decoration: none;
     color: #fff;
   }
-  a::after {
+  .nav::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -123,11 +123,11 @@
     z-index: -1;
     transition: transform 0.3s;
   }
-  a:hover::after {
+  .nav:hover::after {
     transform: scaleY(1);
   }
 
-  a:hover {
+  .nav:hover {
     color: #00a19a;
   }
 

@@ -286,6 +286,8 @@
 
 .preview_carousel {
     margin: 20px 20px;;
+    width: 50%;
+    height: 300px;
 }
 
 .preview_carousel>.carousel {

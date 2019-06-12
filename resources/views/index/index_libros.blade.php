@@ -30,7 +30,7 @@
                             @endphp
                         @else
                             @component('layouts.box')
-                                @slot(  'path', '$g->img_path')
+                                @slot(  'path', $g->img_path)
                                 @slot('title', $g->titulo->Nombre)
                                 @slot('content', 'Leer mas')
                                 @slot('link','#')

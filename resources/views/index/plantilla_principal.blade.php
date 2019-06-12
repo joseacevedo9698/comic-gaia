@@ -25,15 +25,15 @@
 <body>
   <div class="content">
     <ul>
-      <li><a href="/libros"> Comics</a></li>
-      <li><a href="#"> Eventos</a></li>
-      <li><a href="#"> Cafeteria</a></li>
+      <li><a  class="nav" href="/libros"> Comics</a></li>
+      <li><a  class="nav" href="#"> Eventos</a></li>
+      <li><a  class="nav" href="#"> Cafeteria</a></li>
       <li id="home">
-        <img src="{{ asset('images/icono2.png') }}" alt="" />
+        <a href="/"><img src="{{ asset('images/icono2.png') }}" alt="Home" /></a>
       </li>
-      <li><a href="#"> Galeria</a></li>
-      <li><a href="#"> Reseñas</a></li>
-      <li><a href="#"> Contacto</a></li>
+      <li><a class="nav"  href="#"> Galeria</a></li>
+      <li><a class="nav"  href="#"> Reseñas</a></li>
+      <li><a class="nav"  href="#"> Contacto</a></li>
     </ul>
     @yield('contenido-index')
 

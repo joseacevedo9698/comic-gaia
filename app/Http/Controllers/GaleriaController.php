@@ -74,7 +74,7 @@ class GaleriaController extends Controller
         $galeria->Description = $descripcion;
         $galeria->Fecha_publicacion = $fecha;
         if ($request->file('myFile')) {
-            $galeria->galeria_imagenes->delete();
+            $galeria->galeria_imagenes()->delete();
             foreach ($file as $f) {
                 $path = Storage::disk('public')->put('image', $f);
                 $imagen = asset($path);
