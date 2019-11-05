@@ -110,8 +110,19 @@
         </div>
       </div>
       <div class="mapa">
-        <h1>¿Quieres venir?</h1>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.5198496454823!2d-74.82288418563736!3d10.99956879217036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42db2afd05df7%3A0xac6beca02c162ae6!2sTierra+de+C%C3%B3mics!5e0!3m2!1ses-419!2sco!4v1557775162645!5m2!1ses-419!2sco" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+         <div id="twitch-embed"></div>
+
+        <!-- Load the Twitch embed script -->
+        <script src="https://embed.twitch.tv/embed/v1.js"></script>
+    
+        <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
+        <script type="text/javascript">
+            new Twitch.Embed("twitch-embed", {
+                width: 854,
+                height: 480,
+                channel: "kenriusaky"
+            });
+        </script>
       </div>
 
 
